@@ -1,0 +1,27 @@
+.uploadContainer {
+  display: grid;
+  justify-items: center;
+}
+
+.inputBox {
+  display: grid;
+  justify-items: center;
+}
+
+.input {
+  display: none;
+}
+
+.inputText {
+  color: var(--color-primary);
+}
+
+.inputImage {
+  width: 150px;
+}
+
+.uploadedImage {
+  grid-row: 3/4;
+  margin: 2rem;
+  width: 500px;
+}
