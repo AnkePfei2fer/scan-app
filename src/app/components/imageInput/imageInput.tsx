@@ -15,15 +15,16 @@ function ImageInput() {
 
   return (
     <div className={styles.uploadContainer}>
-      <label>
+      <label className={styles.inputBox}>
         <input
           className={styles.input}
           type="file"
           onChange={handleChange}
         ></input>
+        <h1 className={styles.inputText}>Import a document</h1>
         <img
           className={styles.inputImage}
-          src="../src/assets/verschluss-farbig.png"
+          src="../src/assets/empty-folder-farbig.png"
         ></img>
       </label>
       {imageUrl && <img className={styles.uploadedImage} src={imageUrl}></img>}
