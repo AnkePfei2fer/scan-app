@@ -1,0 +1,16 @@
+.uploadContainer {
+  display: grid;
+}
+
+.input {
+  opacity: 0;
+}
+
+.inputImage {
+  width: 150px;
+  margin: 2rem;
+}
+
+.uploadedImage {
+  width: 500px;
+}
