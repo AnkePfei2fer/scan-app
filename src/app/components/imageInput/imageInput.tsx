@@ -19,6 +19,7 @@ function ImageInput() {
         <input
           className={styles.input}
           type="file"
+          accept="image/*"
           onChange={handleChange}
         ></input>
         <h1 className={styles.inputText}>Import a document</h1>
