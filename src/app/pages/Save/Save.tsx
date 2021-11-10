@@ -5,7 +5,7 @@ import Tesseract from 'tesseract.js';
 
 function ReadAndSave() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
-  // const [text, setText] = useState<string | null>(null);
+  const [recognizedText, setRecognizedText] = useState<string | null>(null);
 
   return (
     <div className={styles.saveContainer}>
@@ -20,12 +20,13 @@ function ReadAndSave() {
                 logger: (message) => console.log(message.progress),
               }).then((result) => {
                 const text = result.data.text;
-                console.log(text);
+                setRecognizedText(text);
               });
             }}
           >
             Read and Save
           </button>
+          <p className={styles.outputText}>{recognizedText}</p>
         </>
       ) : (
         ''

@@ -25,3 +25,9 @@
 .button:hover {
   background: var(--color-primary);
 }
+
+.outputText {
+  background-color: white;
+  width: 500px;
+  padding: 1rem;
+}
