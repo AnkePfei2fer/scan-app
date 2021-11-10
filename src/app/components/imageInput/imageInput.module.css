@@ -21,7 +21,7 @@
 }
 
 .uploadedImage {
-  grid-row: 3/4;
+  /* grid-row: 1/2; */
   margin: 2rem;
   width: 500px;
 }
