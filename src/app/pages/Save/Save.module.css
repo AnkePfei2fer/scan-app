@@ -10,7 +10,7 @@
 }
 
 .button {
-  background: var(--color-primary);
+  background: var(--color-secondary);
   border-radius: 10px;
   color: var(--color-text-primary);
   font-size: '1,25rem';
@@ -20,4 +20,8 @@
   width: 150px;
   border: solid var(--color-text-primary) 2px;
   margin: 2rem;
+}
+
+.button:hover {
+  background: var(--color-primary);
 }
