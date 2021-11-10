@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './Save.module.css';
 import ImageInput from '../../components/imageInput/imageInput';
 import { RecognizeProgress, recognizeText } from '../../utils/ocr';
+import AddDocumentForm from '../../components/AddDocumentForm/AddDocumentForm';
 
 function ReadAndSave(): JSX.Element {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -14,7 +15,6 @@ function ReadAndSave(): JSX.Element {
       <ImageInput onUpload={setImageUrl} />
       {imageUrl && (
         <>
-          <input type="text" placeholder="Enter file name"></input>
           <button
             className={styles.button}
             onClick={() => {
@@ -25,19 +25,24 @@ function ReadAndSave(): JSX.Element {
               }
             }}
           >
-            Read and Save
+            Scan
           </button>
+
           {recognizeProgress && (
             <>
               <aside>{recognizeProgress.status}</aside>
-              <progress className={styles.progressBar}
+              <progress
+                className={styles.progressBar}
                 value={recognizeProgress.progress * 100}
                 max={100}
               ></progress>
             </>
           )}
           {recognizedText && (
-            <p className={styles.outputText}>{recognizedText}</p>
+            <>
+              <p className={styles.outputText}>{recognizedText}</p>
+              <AddDocumentForm text={recognizedText} />
+            </>
           )}
         </>
       )}
