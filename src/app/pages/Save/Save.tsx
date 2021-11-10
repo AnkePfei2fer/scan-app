@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import styles from './Save.module.css';
 import ImageInput from '../../components/imageInput/imageInput';
-// import Tesseract from 'tesseract.js';
-import { recognizeText } from '../../utils/ocr';
+import { RecognizeProgress, recognizeText } from '../../utils/ocr';
 
-function ReadAndSave() {
+function ReadAndSave(): JSX.Element {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [recognizedText, setRecognizedText] = useState<string | null>(null);
-  // const [progress, setProgress] = useState<number>(0);
+  const [recognizeProgress, setRecognizeProgress] =
+    useState<RecognizeProgress | null>(null);
 
   return (
     <div className={styles.saveContainer}>
@@ -19,15 +19,23 @@ function ReadAndSave() {
             className={styles.button}
             onClick={() => {
               if (imageUrl) {
-                recognizeText(imageUrl, ({ progress, status }) => {
-                  console.log(progress, status);
-                }).then(setRecognizedText);
+                recognizeText(imageUrl, setRecognizeProgress).then(
+                  setRecognizedText
+                );
               }
             }}
           >
             Read and Save
           </button>
-          {/* <progress value={progress * 100} max={100}></progress> */}
+          {recognizeProgress && (
+            <>
+              <aside>{recognizeProgress.status}</aside>
+              <progress className={styles.progressBar}
+                value={recognizeProgress.progress * 100}
+                max={100}
+              ></progress>
+            </>
+          )}
           {recognizedText && (
             <p className={styles.outputText}>{recognizedText}</p>
           )}
