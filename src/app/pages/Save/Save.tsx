@@ -6,7 +6,7 @@ import Tesseract from 'tesseract.js';
 function ReadAndSave() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [recognizedText, setRecognizedText] = useState<string | null>(null);
-  const [progress, setprogress] = useState<number>(0);
+  const [progress, setProgress] = useState<number>(0);
 
   return (
     <div className={styles.saveContainer}>
@@ -18,8 +18,7 @@ function ReadAndSave() {
             className={styles.button}
             onClick={() => {
               Tesseract.recognize(imageUrl, 'eng', {
-                logger: (message) =>
-                  setprogress((message.progress = message.progress.toFixed(2))),
+                logger: (message) => setProgress(message.progress.toFixed(2)),
               }).then((result) => {
                 const text = result.data.text;
                 setRecognizedText(text);
@@ -28,7 +27,7 @@ function ReadAndSave() {
           >
             Read and Save
           </button>
-          <p>{progress * 100}%</p>
+          <progress value={progress * 100} max={100}></progress>
           {recognizedText && (
             <p className={styles.outputText}>{recognizedText}</p>
           )}
