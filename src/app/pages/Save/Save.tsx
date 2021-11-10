@@ -8,9 +8,16 @@ function ReadAndSave() {
   return (
     <div className={styles.saveContainer}>
       <ImageInput onUpload={setImageUrl} />
-      <button className={styles.button} disabled={imageUrl === null}>
-        Read and Save
-      </button>
+      {imageUrl ? (
+        <>
+          <input type="text" placeholder="Enter file name"></input>
+          <button className={styles.button} disabled={imageUrl === null}>
+            Read and Save
+          </button>
+        </>
+      ) : (
+        ''
+      )}
     </div>
   );
 }

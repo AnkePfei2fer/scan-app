@@ -13,11 +13,11 @@
   background: var(--color-secondary);
   border-radius: 10px;
   color: var(--color-text-primary);
-  font-size: '1,25rem';
+  font-size: 1.25rem;
   text-align: center;
   font-weight: 800;
   padding: 0.5rem;
-  width: 150px;
+  width: 200px;
   border: solid var(--color-text-primary) 2px;
   margin: 2rem;
 }
