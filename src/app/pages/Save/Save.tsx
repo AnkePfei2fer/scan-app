@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Save.module.css';
 import ImageInput from '../../components/imageInput/imageInput';
-// import { RecognizeProgress, recognizeText } from '../../utils/ocr';
 import AddDocumentForm from '../../components/AddDocumentForm/AddDocumentForm';
 import Progress from '../../components/RecognizeProgress/Progress';
 import useRecognizeText from '../../utils/useRecognizeText';
@@ -9,9 +8,6 @@ import useRecognizeText from '../../utils/useRecognizeText';
 function Scan(): JSX.Element {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const { text, progress, recognize } = useRecognizeText();
-  // const [recognizedText, setRecognizedText] = useState<string | null>(null);
-  // const [recognizeProgress, setRecognizeProgress] =
-  //   useState<RecognizeProgress | null>(null);
 
   return (
     <div className={styles.saveContainer}>
