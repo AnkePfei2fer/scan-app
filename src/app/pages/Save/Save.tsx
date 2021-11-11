@@ -3,8 +3,9 @@ import styles from './Save.module.css';
 import ImageInput from '../../components/imageInput/imageInput';
 import { RecognizeProgress, recognizeText } from '../../utils/ocr';
 import AddDocumentForm from '../../components/AddDocumentForm/AddDocumentForm';
+import Progress from '../../components/RecognizeProgress/Progress';
 
-function ReadAndSave(): JSX.Element {
+function Scan(): JSX.Element {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [recognizedText, setRecognizedText] = useState<string | null>(null);
   const [recognizeProgress, setRecognizeProgress] =
@@ -13,6 +14,7 @@ function ReadAndSave(): JSX.Element {
   return (
     <div className={styles.saveContainer}>
       <ImageInput onUpload={setImageUrl} />
+
       {imageUrl && (
         <>
           <button
@@ -29,15 +31,12 @@ function ReadAndSave(): JSX.Element {
           </button>
 
           {recognizeProgress && (
-            <>
-              <aside>{recognizeProgress.status}</aside>
-              <progress
-                className={styles.progressBar}
-                value={recognizeProgress.progress * 100}
-                max={100}
-              ></progress>
-            </>
+            <Progress
+              progress={recognizeProgress.progress * 100}
+              status={recognizeProgress.status}
+            />
           )}
+
           {recognizedText && (
             <>
               <p className={styles.outputText}>{recognizedText}</p>
@@ -50,4 +49,4 @@ function ReadAndSave(): JSX.Element {
   );
 }
 
-export default ReadAndSave;
+export default Scan;
