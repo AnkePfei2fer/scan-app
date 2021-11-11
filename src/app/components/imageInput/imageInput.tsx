@@ -34,7 +34,7 @@ function ImageInput({ onUpload }: ImageInputProps) {
           <img
             className={styles.inputImage}
             src="../src/assets/empty-folder-farbig.png"
-          ></img>
+          />
         </label>
       )}
     </div>

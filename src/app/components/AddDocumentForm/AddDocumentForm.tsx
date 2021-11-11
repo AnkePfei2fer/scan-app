@@ -25,7 +25,7 @@ export default function AddDocumentForm({
         placeholder="Enter file name"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
-      ></input>
+      />
       <button className={styles.saveButton} disabled={!title || isLoading}>
         Save file
       </button>

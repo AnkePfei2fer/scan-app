@@ -17,7 +17,6 @@
   text-align: center;
   font-weight: 800;
   padding: 0.5rem;
-  width: 200px;
   border: solid var(--color-text-primary) 2px;
   margin: 2rem;
 }
