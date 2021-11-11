@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import styles from './Save.module.css';
 import ImageInput from '../../components/imageInput/imageInput';
-import { RecognizeProgress, recognizeText } from '../../utils/ocr';
+// import { RecognizeProgress, recognizeText } from '../../utils/ocr';
 import AddDocumentForm from '../../components/AddDocumentForm/AddDocumentForm';
 import Progress from '../../components/RecognizeProgress/Progress';
+import useRecognizeText from '../../utils/useRecognizeText';
 
 function Scan(): JSX.Element {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
-  const [recognizedText, setRecognizedText] = useState<string | null>(null);
-  const [recognizeProgress, setRecognizeProgress] =
-    useState<RecognizeProgress | null>(null);
+  const { text, progress, recognize } = useRecognizeText();
+  // const [recognizedText, setRecognizedText] = useState<string | null>(null);
+  // const [recognizeProgress, setRecognizeProgress] =
+  //   useState<RecognizeProgress | null>(null);
 
   return (
     <div className={styles.saveContainer}>
@@ -21,26 +23,24 @@ function Scan(): JSX.Element {
             className={styles.button}
             onClick={() => {
               if (imageUrl) {
-                recognizeText(imageUrl, setRecognizeProgress).then(
-                  setRecognizedText
-                );
+                recognize(imageUrl);
               }
             }}
           >
             Scan
           </button>
 
-          {recognizeProgress && (
+          {progress && (
             <Progress
-              progress={recognizeProgress.progress * 100}
-              status={recognizeProgress.status}
+              progress={progress.progress * 100}
+              status={progress.status}
             />
           )}
 
-          {recognizedText && (
+          {text && (
             <>
-              <p className={styles.outputText}>{recognizedText}</p>
-              <AddDocumentForm text={recognizedText} />
+              <p className={styles.outputText}>{text}</p>
+              <AddDocumentForm text={text} />
             </>
           )}
         </>
