@@ -29,3 +29,8 @@
 .saveButton:hover {
   background: var(--color-primary);
 }
+
+.saveButton:disabled {
+  background: var(--color-tertiary);
+  color: var(--color-background);
+}

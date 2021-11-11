@@ -28,7 +28,9 @@ export default function AddDocumentForm({
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       ></input>
-      <button className={styles.saveButton}>Save file</button>
+      <button className={styles.saveButton} disabled={!title}>
+        Save file
+      </button>
     </form>
   );
 }
