@@ -9,38 +9,40 @@ function Scan(): JSX.Element {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const { text, progress, recognize } = useRecognizeText();
 
+  let content;
+
+  if (imageUrl) {
+    content = (
+      <button
+        className={styles.button}
+        onClick={() => {
+          if (imageUrl) {
+            recognize(imageUrl);
+          }
+        }}
+      >
+        Scan
+      </button>
+    );
+  }
+  if (progress) {
+    content = (
+      <Progress progress={progress.progress * 100} status={progress.status} />
+    );
+  }
+  if (text) {
+    content = (
+      <>
+        <p className={styles.outputText}>{text}</p>
+        <AddDocumentForm text={text} />
+      </>
+    );
+  }
+
   return (
     <div className={styles.saveContainer}>
       <ImageInput onUpload={setImageUrl} />
-
-      {imageUrl && (
-        <>
-          <button
-            className={styles.button}
-            onClick={() => {
-              if (imageUrl) {
-                recognize(imageUrl);
-              }
-            }}
-          >
-            Scan
-          </button>
-
-          {progress && (
-            <Progress
-              progress={progress.progress * 100}
-              status={progress.status}
-            />
-          )}
-
-          {text && (
-            <>
-              <p className={styles.outputText}>{text}</p>
-              <AddDocumentForm text={text} />
-            </>
-          )}
-        </>
-      )}
+      {content}
     </div>
   );
 }
