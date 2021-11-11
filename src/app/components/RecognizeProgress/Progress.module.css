@@ -1,0 +1,4 @@
+.statusAndProgress {
+  display: grid;
+  place-items: center;
+}

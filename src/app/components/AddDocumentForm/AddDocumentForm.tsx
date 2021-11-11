@@ -16,6 +16,7 @@ export default function AddDocumentForm({
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(document),
     });
+    setTitle('');
   };
 
   return (
