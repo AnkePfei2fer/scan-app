@@ -11,7 +11,19 @@ function Scan(): JSX.Element {
 
   let content;
 
-  if (imageUrl) {
+  if (text && progress) {
+    content = (
+      <>
+        <Progress progress={progress.progress * 100} status={progress.status} />
+        <p className={styles.outputText}>{text}</p>
+        <AddDocumentForm text={text} />
+      </>
+    );
+  } else if (progress) {
+    content = (
+      <Progress progress={progress.progress * 100} status={progress.status} />
+    );
+  } else if (imageUrl) {
     content = (
       <button
         className={styles.button}
@@ -23,19 +35,6 @@ function Scan(): JSX.Element {
       >
         Scan
       </button>
-    );
-  }
-  if (progress) {
-    content = (
-      <Progress progress={progress.progress * 100} status={progress.status} />
-    );
-  }
-  if (text) {
-    content = (
-      <>
-        <p className={styles.outputText}>{text}</p>
-        <AddDocumentForm text={text} />
-      </>
     );
   }
 
