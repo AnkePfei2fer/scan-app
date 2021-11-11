@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from 'react';
+import styles from './AddDocumentForm.module.css';
 
 type AddDocumentFormProps = { text: string };
 
@@ -18,14 +19,15 @@ export default function AddDocumentForm({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.saveContainer} onSubmit={handleSubmit}>
       <input
         type="text"
+        className={styles.filenameInput}
         placeholder="Enter file name"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       ></input>
-      <button>Save file</button>
+      <button className={styles.saveButton}>Save file</button>
     </form>
   );
 }

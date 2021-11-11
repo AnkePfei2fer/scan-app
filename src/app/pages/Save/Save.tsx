@@ -26,7 +26,7 @@ function Scan(): JSX.Element {
   } else if (imageUrl) {
     content = (
       <button
-        className={styles.button}
+        className={styles.scanButton}
         onClick={() => {
           if (imageUrl) {
             recognize(imageUrl);
