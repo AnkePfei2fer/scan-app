@@ -1,27 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './DocPreview.module.css';
+import fetchDocuments from '../../utils/getFiles';
 
-export default function DocPreview(): JSX.Element {
+type dataProps = {
+  id: number;
+  title: string;
+  text: string;
+};
+
+export default function DocPreview() {
+  const [data, setData] = useState<dataProps[] | null>(null);
+
+  useEffect(() => {
+    const fetch = async () => {
+      await fetchDocuments().then(setData);
+    };
+    fetch();
+  }, []);
+
   return (
     <div className={styles.fileList}>
-      <article className={styles.filePreview}>
-        <img className={styles.fileIcon} src="../src/assets/page.png" />
-        <a className={styles.linkToFile} href={'#'}>
-          file 1
-        </a>
-      </article>
-      <article className={styles.filePreview}>
-        <img className={styles.fileIcon} src="../src/assets/page.png" />
-        <a className={styles.linkToFile} href={'#'}>
-          file 2
-        </a>
-      </article>
-      <article className={styles.filePreview}>
-        <img className={styles.fileIcon} src="../src/assets/page.png" />
-        <a className={styles.linkToFile} href={'#'}>
-          file 3
-        </a>
-      </article>
+      {data &&
+        data.map((fileName) => (
+          <article className={styles.filePreview} key={fileName.id}>
+            <img className={styles.fileIcon} src="../src/assets/page.png" />
+            <a className={styles.linkToFile} href={'#'}>
+              {fileName.title}
+            </a>
+          </article>
+        ))}
     </div>
   );
 }
