@@ -1,0 +1,21 @@
+.fileList {
+  display: grid;
+  margin-left: 5rem;
+}
+.filePreview {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem;
+  margin: 0.5rem;
+  align-items: center;
+}
+
+.fileIcon {
+  width: 20px;
+}
+
+.linkToFile:link,
+.linkToFile:visited {
+  text-decoration: none;
+  color: var(--color-text-primary);
+}
