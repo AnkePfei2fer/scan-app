@@ -1,0 +1,11 @@
+.fileIcon {
+  width: 20px;
+}
+
+.filePreview {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem;
+  margin: 1rem;
+  align-items: center;
+}
