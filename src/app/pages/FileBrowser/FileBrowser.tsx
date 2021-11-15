@@ -21,15 +21,15 @@ export default function FileBrowser() {
 
     return (
       <div className={styles.fileList}>
-        {data &&
-          data.map((fileName) => (
-            <article className={styles.filePreview} key={fileName.id}>
-              <img className={styles.fileIcon} src="../src/assets/page.png" />
-              <a className={styles.linkToFile} href={'#'}>
-                {fileName.title}
-              </a>
-            </article>
-          ))}
+        {/* {data && */}
+        {data?.map((fileName) => (
+          <article className={styles.filePreview} key={fileName.id}>
+            <img className={styles.fileIcon} src="../src/assets/page.png" />
+            <a className={styles.linkToFile} href={'#'}>
+              {fileName.title}
+            </a>
+          </article>
+        ))}
       </div>
     );
   }
