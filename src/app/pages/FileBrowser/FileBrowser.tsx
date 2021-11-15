@@ -20,11 +20,22 @@ export default function FileBrowser() {
       fetch();
     }, []);
 
+    // Sort by title in alphabetical order
+    data?.sort(function (a, b) {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    });
+
     return (
       <>
         <SearchBar />
         <div className={styles.fileList}>
-          {/* {data && */}
+          {!data && <span>is loading</span>}
           {data?.map((fileName) => (
             <article className={styles.filePreview} key={fileName.id}>
               <img className={styles.fileIcon} src="../src/assets/page.png" />
