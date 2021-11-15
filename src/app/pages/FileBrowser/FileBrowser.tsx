@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import fetchDocuments from '../../utils/getFiles';
 import styles from './FileBrowser.module.css';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 export default function FileBrowser() {
   type dataProps = {
@@ -9,7 +10,7 @@ export default function FileBrowser() {
     text: string;
   };
 
-  function DocPreview() {
+  function FileBrowser() {
     const [data, setData] = useState<dataProps[] | null>(null);
 
     useEffect(() => {
@@ -20,19 +21,22 @@ export default function FileBrowser() {
     }, []);
 
     return (
-      <div className={styles.fileList}>
-        {/* {data && */}
-        {data?.map((fileName) => (
-          <article className={styles.filePreview} key={fileName.id}>
-            <img className={styles.fileIcon} src="../src/assets/page.png" />
-            <a className={styles.linkToFile} href={'#'}>
-              {fileName.title}
-            </a>
-          </article>
-        ))}
-      </div>
+      <>
+        <SearchBar />
+        <div className={styles.fileList}>
+          {/* {data && */}
+          {data?.map((fileName) => (
+            <article className={styles.filePreview} key={fileName.id}>
+              <img className={styles.fileIcon} src="../src/assets/page.png" />
+              <a className={styles.linkToFile} href={'#'}>
+                {fileName.title}
+              </a>
+            </article>
+          ))}
+        </div>
+      </>
     );
   }
 
-  return <DocPreview />;
+  return <FileBrowser />;
 }
