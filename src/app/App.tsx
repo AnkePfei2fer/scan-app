@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 function App(): JSX.Element {
   return (
@@ -13,6 +13,7 @@ function App(): JSX.Element {
         <Link to="/pages/Save">Scan</Link> |{' '}
         <Link to="/pages/FileBrowser">Go to library</Link>
       </nav>
+      <Outlet />
     </div>
   );
 }

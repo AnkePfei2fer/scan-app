@@ -8,10 +8,11 @@ import FileBrowser from './pages/FileBrowser/FileBrowser';
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
     <Routes>
-      <Route path="/pages/Save/" element={<Scan />} />
-      <Route path="/pages/FileBrowser/" element={<FileBrowser />} />
+      <Route path="/" element={<App />}>
+        <Route path="/pages/Save/" element={<Scan />} />
+        <Route path="/pages/FileBrowser/" element={<FileBrowser />} />
+      </Route>
     </Routes>
   </BrowserRouter>,
   document.querySelector('#root')
