@@ -2,6 +2,7 @@
   display: grid;
   margin-left: 5rem;
 }
+
 .filePreview {
   display: grid;
   grid-template-columns: auto 1fr;
