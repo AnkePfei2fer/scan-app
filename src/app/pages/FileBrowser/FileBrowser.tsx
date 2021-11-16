@@ -3,13 +3,13 @@ import fetchDocuments from '../../utils/getFiles';
 import styles from './FileBrowser.module.css';
 import SearchBar from '../../components/SearchBar/SearchBar';
 
-export default function FileBrowser() {
-  type dataProps = {
-    id: number;
-    title: string;
-    text: string;
-  };
+type dataProps = {
+  id: number;
+  title: string;
+  text: string;
+};
 
+export default function FileBrowser() {
   function FileBrowser() {
     const [data, setData] = useState<dataProps[] | null>(null);
 
