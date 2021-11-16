@@ -1,8 +1,5 @@
 import React from 'react';
-import styles from './App.module.css';
 import { Link } from 'react-router-dom';
-import Scan from './pages/Save/Save';
-import FileBrowser from './pages/FileBrowser/FileBrowser';
 
 function App(): JSX.Element {
   return (
@@ -14,7 +11,7 @@ function App(): JSX.Element {
         }}
       >
         <Link to="/pages/Save">Scan</Link> |{' '}
-        <Link to="/pages/FileBrowser">Got to library</Link>
+        <Link to="/pages/FileBrowser">Go to library</Link>
       </nav>
     </div>
   );
