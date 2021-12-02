@@ -19,10 +19,12 @@
   border: solid var(--color-text-primary) 2px;
   margin: 1rem;
 }
+
 .fileList {
   display: grid;
   margin-left: 5rem;
 }
+
 .filePreview {
   display: grid;
   grid-template-columns: auto 1fr;
