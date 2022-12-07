@@ -8,6 +8,7 @@ const { PORT = 3001 } = process.env;
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/scan-app/',
   plugins: [reactRefresh()],
   server: {
     proxy: {
