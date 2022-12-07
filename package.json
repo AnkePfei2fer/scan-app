@@ -1,6 +1,7 @@
 {
   "name": "vite-boilerplate",
   "version": "0.0.0",
+  "homepage": "https://ankepfei2fer.github.io/scan-app",
   "scripts": {
     "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\" \"npm run storybook\"",
     "client:dev": "vite",
