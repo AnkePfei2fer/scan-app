@@ -5,4 +5,4 @@ export default {
   component: AddDocumentForm,
   title: 'Components/AddDocumentForm',
 };
-export const Default = () => <AddDocumentForm />;
+export const Default = () => <AddDocumentForm text={''} />;
